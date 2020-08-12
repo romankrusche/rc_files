@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cp /home/roman/.vimrc .
-cp -r /home/roman/.vim
+cp -r /home/roman/.vim .
 cp /home/roman/.bashrc .
 cp /home/roman/initMyLinux.sh .
 
