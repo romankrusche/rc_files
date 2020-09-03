@@ -1,0 +1,15 @@
+This is a cheat sheet for regular expression used in the vim-flavour
+--------------------------------------------------------------------
+\=    : match 1 or 0 times
+\+    : match 1 or more times
+*     : match 0 or more times
+\{n}  : match exactly n times
+\{n,} : match at least n times
+\{,n} : match at most n times
+\{x,y}: match at least x, but no more than y times
+
+\w    : any word character, [a-zA-Z0-9_]
+\s    : white space character, [ \t]
+
+[...] : any character listed or contained in range
+[^...]: any character that is not listed or contained within listed range

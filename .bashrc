@@ -117,6 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 # map caps lock to escape, for faster vim action
+# this is already replaced by vim-mapping jk 
 setxkbmap -option caps:escape
 
 alias sor="source ~/.bashrc"
@@ -127,8 +128,10 @@ alias butex="bash /daten/backup_latex.sh"
 alias budiss="bash /daten/backup_diss.sh"
 alias getMeasData="libreoffice /daten/diss/06_Messung/konstMflow/Akustik/ViV_Wien_2019/Daten/02_Randbedingungen_AkustikMessungen_Wien2019.xlsx"
 alias gethvColorBar="cat /daten/diss/03_Diss_Latex/plots/template_hvColorBar.tex"
+alias getardamirIP="echo kr@131.188.159.101"
 
 alias ardamir="ssh -XC kr@131.188.159.101"
+alias noXardamir="ssh kr@131.188.159.101"
 alias emmy="ssh -XC iwpa75@emmy.rrze.fau.de"
 alias cshpc="ssh -X iwpa75@cshpc.rrze.fau.de"
 
@@ -159,7 +162,7 @@ clean_latex(){
 }
 
 my_ffmpeg(){
-   ffmpeg -r 20 -i ${1} -r 20 -b 6000k -vcodec libx264 -pix_fmt yuv420p ${2}
+   ffmpeg -y -r 20 -i ${1} -r 20 -b:v 6000k -vcodec libx264 -pix_fmt yuv420p ${2}
 }
 
 inkscapeExp(){

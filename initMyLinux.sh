@@ -10,6 +10,7 @@ sudo apt-get install htop
 sudo apt-get install gcc
 sudo apt-get install git
 sudo apt-get install gnuplot
+sudo apt install mailutils
 # }}}
 
 # vim {{{ -------------------------------------------------------------------- 

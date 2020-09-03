@@ -37,7 +37,7 @@ setlocal completefunc=
 setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
-setlocal nocursorcolumn
+setlocal cursorcolumn
 setlocal nocursorline
 setlocal define=
 setlocal dictionary=
@@ -124,12 +124,13 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 14) / 29)
+let s:l = 1 - ((0 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
+lcd ~/Documents/02_latex_test_bench/02_testing_beamer/03_creating_own_beamertheme
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
