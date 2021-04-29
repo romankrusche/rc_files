@@ -112,12 +112,29 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 15 - ((14 * winheight(0) + 15) / 30)
+4
+normal! zo
+6
+normal! zo
+9
+normal! zo
+14
+normal! zo
+17
+normal! zo
+22
+normal! zo
+28
+normal! zo
+31
+normal! zo
+let s:l = 17 - ((16 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-15
-normal! 022|
+17
+normal! 0
+lcd ~/Documents/02_latex_test_bench/02_testing_beamer/03_creating_own_beamertheme
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

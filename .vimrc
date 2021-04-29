@@ -52,7 +52,7 @@ colorscheme sublimemonokai
 "colorscheme blackboard
 
 set relativenumber                     " activate relative line numbers
-set rnu
+set nu
 "set number relativenumber             " turn hybrid line numbers on
 "set nu rnu
 set nowrap                             " long lines are not wraped
@@ -107,6 +107,7 @@ nnoremap <Leader>ft :set filetype?<CR>
 
 set expandtab shiftwidth=3 tabstop=3   " replace tab with white spaces, and set indentation to 3 spaces
 set showcmd                            " this shows every command at bottom line
+set smartindent
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
 inoremap { {}<Esc>ha
@@ -116,6 +117,7 @@ inoremap < <><Esc>ha
 
 " move over a closing parentheses in insert mode
 inoremap <C-l> <esc>la
+inoremap <C-h> <esc>ha
 
 " move current line down 
 nnoremap - ddp
@@ -143,11 +145,11 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 " %% =========================================================== %% 
 " Abbreviations {{{
 
-augroup filetype_section_autocomplet
-   autocmd!
-   autocmd FileType python :iabbrev <buffer> ifc if:<left>
-   autocmd FileType sh :iabbrev <buffer> ifc if;<space>then<CR><CR>fi<up><up><right>
-augroup END
+"augroup filetype_section_autocomplet
+"   autocmd!       " when this file is sourced again, this will unlink and re-attach the augroup
+"   autocmd FileType python :iabbrev <buffer> ifc if:<left>
+"   autocmd FileType sh :iabbrev <buffer> ifc if;<space>then<CR><CR>fi<up><up><right>
+"augroup END
 
 "cnoremap :regex<CR> :tabedit ~/Documents/00_dotfiles/vim_regex_cheatsheet.txt<CR>
 
@@ -185,13 +187,14 @@ nnoremap <silent> <Leader>vd :vertical resize -10<CR>
 set undodir=~/.vim/undo/
 set backupdir=~/.vim/backup/
 "set nobackup nowritebackup noswapfile " Turn off backup files
+set hidden        " this keeps closed files in a hidden buffer (even unsaved)
 
 " }}}
 
 " %% =========================================================== %% 
 " Code folding {{{
 
-" automatically save view of made folds and loding those when file is opened again
+" automatically save view of made folds and loading those when file is opened again
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 

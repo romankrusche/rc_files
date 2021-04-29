@@ -5,12 +5,22 @@
 
 if [[ "X$1" == "X-run" ]]; then # for savity only run this, if you are sure
 
+# create directories {{{
+sudo mkdir -p /daten/diss
+sudo mkdir -p /daten/office_extensions
+# }}}
+
 # install tools {{{ ----------------------------------------------------------
 sudo apt-get install htop
+sudo apt-get install inkscape
 sudo apt-get install gcc
 sudo apt-get install git
 sudo apt-get install gnuplot
-sudo apt install mailutils
+sudo apt-get install python-lxml   # this is needed of the svg2tikz extension for the conversion of inksacpe svg
+sudo apt install mailutils bsd-mailx
+sudo apt install rename
+sudo apt install pdfgrep
+sudo apt-get install obs
 # }}}
 
 # vim {{{ -------------------------------------------------------------------- 

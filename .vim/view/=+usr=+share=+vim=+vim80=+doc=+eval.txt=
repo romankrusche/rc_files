@@ -113,11 +113,11 @@ setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3298 - ((0 * winheight(0) + 10) / 20)
+let s:l = 5115 - ((0 * winheight(0) + 10) / 20)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3298
+5115
 normal! 057|
 lcd ~/Documents/02_latex_test_bench/02_testing_beamer/03_creating_own_beamertheme
 let &so = s:so_save | let &siso = s:siso_save

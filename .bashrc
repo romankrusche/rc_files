@@ -134,6 +134,7 @@ alias ardamir="ssh -XC kr@131.188.159.101"
 alias noXardamir="ssh kr@131.188.159.101"
 alias emmy="ssh -XC iwpa75@emmy.rrze.fau.de"
 alias cshpc="ssh -X iwpa75@cshpc.rrze.fau.de"
+alias sshpihole="ssh pi@192.168.1.20"
 
 alias webplotdigitizer="/opt/WebPlotDigitizer-4.2-linux-x64/WebPlotDigitizer-4.2"
 alias pdftk="/snap/pdftk/9/usr/bin/pdftk"
@@ -144,6 +145,7 @@ alias eclipse="/opt/eclipse/eclipse/eclipse"
 alias showDiss="okular /daten/diss/03_Diss_Latex/Diss_Krusche.pdf"
 alias showLinxSetup="okular /home/roman/Documents/Linux_setup/Linux_initial_setup.pdf"
 alias pl="pdflatex -shell-escape -interaction=nonstopmode"
+export EDITOR=vim
 
 mygit(){
    git config --global user.name "romankrusche"
@@ -167,8 +169,9 @@ my_ffmpeg(){
 
 inkscapeExp(){
    filebase=${1%%.svg}
-   inkscape -D -z --file=${1} --export-pdf=${filebase}.pdf --export-latex
+   inkscape -D --export-filename=${filebase}.pdf $1 --export-latex
 }
+export PYTHONPATH=$PYTHONPATH:/home/roman/Documents/git_prj_inkscape2tikz
 
 cf(){
    find $1 -type f | wc -l
