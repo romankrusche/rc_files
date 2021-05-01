@@ -1,4 +1,4 @@
-" vim settings 
+" vim settings
 " author: roman krusche
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 syntax on                              " activate syntax highlighting
@@ -6,7 +6,7 @@ syntax on                              " activate syntax highlighting
 "filetype on                            " activate filetype detection
 let $BASH_ENV="~/.vim/vim_bash"        " expand aliases in running external bash commands
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Plugins {{{
 
 " eather source a file containing all plugin definitions: source ~/.vim/plugin/plugins.vim
@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-endwise' 
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
 
@@ -25,12 +25,12 @@ call plug#end()
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Plugin Related Mappings {{{
 
 " vmath.vim -- by Damian Conway --
 xnoremap <silent><expr>  ++  VMATH_YankAndAnalyse()
-nnoremap <silent>        ++  vip++                 
+nnoremap <silent>        ++  vip++
 
 " easy-align.vim -- by junegunn --
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -40,7 +40,7 @@ nnoremap ga <Plug>(EasyAlign)
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Optics {{{
 
 colorscheme sublimemonokai
@@ -64,7 +64,7 @@ set cursorcolumn                       " highlight current cursor column
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Leader Mappings {{{
 
 map <Space> <leader>
@@ -73,12 +73,12 @@ nnoremap <Leader>l :tabn<CR>
 nnoremap <Leader>q :qall<CR>
 
 " toggle scrollbind on/off for synch scrolling (ss) in split windows
-nnoremap <Leader>ss :windo set scrollbind!<CR>    
+nnoremap <Leader>ss :windo set scrollbind!<CR>
 
 " switch vsplit to hsplit
 nnoremap <Leader>H <C-w>K<CR>
 " switch hsplit to vsplit
-nnoremap <Leader>V <C-w>H<CR>              
+nnoremap <Leader>V <C-w>H<CR>
 
 nnoremap <Leader>mk :setlocal foldmethod=marker<CR>
 
@@ -88,10 +88,10 @@ vnoremap <Leader>c gc
 " edit & source the vimrc
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>tev :tabedit $MYVIMRC<CR>
-nnoremap <Leader>sor :source $MYVIMRC<CR> 
+nnoremap <Leader>sor :source $MYVIMRC<CR>
 
 " open NERD Tree side bar
-nnoremap <Leader>nt :NERDTree<CR> 
+nnoremap <Leader>nt :NERDTree<CR>
 
 " move through buffers
 nnoremap <Leader>bn :bn<CR>
@@ -102,7 +102,7 @@ nnoremap <Leader>ft :set filetype?<CR>
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Editing {{{
 
 set expandtab shiftwidth=3 tabstop=3   " replace tab with white spaces, and set indentation to 3 spaces
@@ -119,7 +119,7 @@ inoremap < <><Esc>ha
 inoremap <C-l> <esc>la
 inoremap <C-h> <esc>ha
 
-" move current line down 
+" move current line down
 nnoremap - ddp
 " move current line up
 nnoremap _ ddkP
@@ -130,7 +130,7 @@ nnoremap <C-u> mmviWU`m
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Operator-Pending Mappings {{{
 
 onoremap in( :<c-u>normal! f(vi(<cr>
@@ -142,7 +142,7 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Abbreviations {{{
 
 "augroup filetype_section_autocomplet
@@ -155,7 +155,7 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Search behaviour {{{
 
 set hlsearch                           " Highlight search results
@@ -164,7 +164,7 @@ set incsearch                          " Show search results as you type
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Splits {{{
 
 set splitright                         " Open new splits to the right
@@ -181,7 +181,7 @@ nnoremap <silent> <Leader>vd :vertical resize -10<CR>
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " backup, undo, swap files {{{
 
 set undodir=~/.vim/undo/
@@ -191,16 +191,16 @@ set hidden        " this keeps closed files in a hidden buffer (even unsaved)
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Code folding {{{
 
 " automatically save view of made folds and loading those when file is opened again
 autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview 
+autocmd BufWinEnter *.* silent loadview
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " File Find {{{
 
 " use * for fuzzy find tab-completion
@@ -223,8 +223,13 @@ set wildignore+=*.pptm
 
 " }}}
 
-" %% =========================================================== %% 
+" %% =========================================================== %%
 " Functions {{{
+
+" trim trailing white space upon BufWritePre
+function! TrimWhitespace()
+   normal! %s/\s\+$//e
+endfunction
 
 " Highlight a column in csv text.
 " :Csv 1    " highlight first column
@@ -243,5 +248,20 @@ function! CSVH(colnr)
   endif
 endfunction
 command! -nargs=1 Csv :call CSVH(<args>)
+
+" }}}
+
+" %% =========================================================== %%
+" Autocmds {{{
+
+augroup HOW_FLY_ARE_WE
+   autocmd!
+   " trim trailing white spaces upon exit
+   autocmd BufWritePre * :%s/\s\+$//e
+
+   " get rid of windows EOL characters
+   autocmd BufWritePre *.blue :%s/\r//e
+
+augroup END
 
 " }}}

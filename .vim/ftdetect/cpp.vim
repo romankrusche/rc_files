@@ -26,6 +26,8 @@ let g:cpp_semicolon_append = 1
 " endfunction
 
 function! Append_missing_semi_colon() abort
+   " save current location of cursor
+   let save_cursor = getcurpos()   
    let lnum = 1
    let numlines = line('$')      " get total number of lines in file
    while lnum <= numlines
@@ -81,6 +83,9 @@ function! Append_missing_semi_colon() abort
 
       let lnum += 1
    endwhile 
+
+   " resore cursor postion
+   call setpos('.', save_cursor)
 endfunction
 
 " function! Append_semicolon() abort
