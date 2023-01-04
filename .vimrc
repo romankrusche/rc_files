@@ -61,6 +61,7 @@ set laststatus=2                       " permanently show the filename at bottom
 set statusline=%f\ -\ FileType:\ %y\ -\ Buffer\ Nr:\ %n%=\L:\ %4l/%L\ (%%%p)\ C:\ %c
 "set cursorline                         " highlight current cursor line
 set cursorcolumn                       " highlight current cursor column
+set scrolloff=8
 
 " }}}
 
@@ -125,8 +126,8 @@ nnoremap - ddp
 nnoremap _ ddkP
 
 " convert last contiguous string to upper case letters
-inoremap <C-u> <esc>viWUea
-nnoremap <C-u> mmviWU`m
+"inoremap <C-u> <esc>viWUea
+"nnoremap <C-u> mmviWU`m
 
 " }}}
 
@@ -261,6 +262,10 @@ augroup HOW_FLY_ARE_WE
 
    " get rid of windows EOL characters
    autocmd BufWritePre *.blue :%s/\r//e
+
+   " start new scripts with hash bang
+   autocmd BufNewFile *.sh :execute "normal! ggI#!/bin/bash\<esc>"
+   autocmd BufNewFile *.py :execute "normal! ggI#!/opt/anaconda3/bin/python3\<esc>"
 
 augroup END
 

@@ -90,7 +90,7 @@ setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
-setlocal readonly
+setlocal noreadonly
 setlocal relativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
@@ -125,12 +125,12 @@ setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 35 - ((0 * winheight(0) + 18) / 37)
+let s:l = 28 - ((24 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-35
-normal! 07|
+28
+normal! 015|
 lcd ~/Documents/02_latex_test_bench/02_testing_beamer/03_creating_own_beamertheme
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

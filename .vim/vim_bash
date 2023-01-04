@@ -3,5 +3,6 @@ shopt -s expand_aliases
 
 alias ll='ls -lah'
 alias py3="/opt/anaconda3/bin/python3"
+alias ipy3="/opt/anaconda3/bin/ipython3"
 alias pl="pdflatex -shell-escape -interaction=nonstopmode"
 alias lua="lualatex -synctex=1 -interaction=nonstopmode --shell-escape"

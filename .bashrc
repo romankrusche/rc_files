@@ -117,13 +117,14 @@ if ! shopt -oq posix; then
 fi
 
 # map caps lock to escape, for faster vim action
-# this is already replaced by vim-mapping jk 
+# this is already replaced by vim-mapping jk
 setxkbmap -option caps:escape
 
 alias sor="source ~/.bashrc"
 alias ct="cat ~/.bashrc"
 alias diss="cd /daten/diss"
 alias 3ds="cd /daten/3ds"
+alias postpro="cd /daten/diss/06_Messung/konstMflow/Akustik/ViV_Wien_2019/Daten/postprocessing/"
 alias butex="bash /daten/backup_latex.sh"
 alias budiss="bash /daten/backup_diss.sh"
 alias getMeasData="libreoffice /daten/diss/06_Messung/konstMflow/Akustik/ViV_Wien_2019/Daten/02_Randbedingungen_AkustikMessungen_Wien2019.xlsx"
@@ -131,6 +132,9 @@ alias gethvColorBar="cat /daten/diss/03_Diss_Latex/plots/template_hvColorBar.tex
 alias getardamirIP="echo kr@131.188.159.101"
 
 alias ardamir="ssh -XC kr@131.188.159.101"
+alias sshlaval="ssh -XC kr@laval.lstm.uni-erlangen.de"
+alias sshpitot="ssh -XC kr@pitot.lstm.uni-erlangen.de"
+alias sshlighthill="ssh -XC kr@lighthill.lstm.uni-erlangen.de"
 alias noXardamir="ssh kr@131.188.159.101"
 alias emmy="ssh -XC iwpa75@emmy.rrze.fau.de"
 alias cshpc="ssh -X iwpa75@cshpc.rrze.fau.de"
@@ -139,13 +143,19 @@ alias sshpihole="ssh pi@192.168.1.20"
 alias webplotdigitizer="/opt/WebPlotDigitizer-4.2-linux-x64/WebPlotDigitizer-4.2"
 alias pdftk="/snap/pdftk/9/usr/bin/pdftk"
 alias pycharm="bash ~/.local/share/umake/ide/pycharm/bin/pycharm.sh"
-alias python3="/opt/anaconda3/bin/python3"
+alias py3="/opt/anaconda3/bin/python3"
+alias ipy3="/opt/anaconda3/bin/ipython3"
 alias jupyternb="/opt/anaconda3/bin/jupyter-notebook"
 alias eclipse="/opt/eclipse/eclipse/eclipse"
 alias showDiss="okular /daten/diss/03_Diss_Latex/Diss_Krusche.pdf"
 alias showLinxSetup="okular /home/roman/Documents/Linux_setup/Linux_initial_setup.pdf"
 alias pl="pdflatex -shell-escape -interaction=nonstopmode"
 export EDITOR=vim
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
 mygit(){
    git config --global user.name "romankrusche"
@@ -173,8 +183,16 @@ inkscapeExp(){
 }
 export PYTHONPATH=$PYTHONPATH:/home/roman/Documents/git_prj_inkscape2tikz
 
+compresspdf(){
+   gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=${2} ${1}
+}
+
 cf(){
    find $1 -type f | wc -l
+}
+
+mkcd(){
+   mkdir -p $1 && cd $1
 }
 
 showBP(){
@@ -189,6 +207,6 @@ setupPgfSubfile(){
    ln -s /daten/03_Diss_Latex/latex_einstellungen/ latex_einstellungen
    ln -s /daten/03_Diss_Latex/data/ data
    ln -s /daten/03_Diss_Latex/external_fig/ external_fig
-   cp /daten/03_Diss_Latex/plots/10_sim_meas_comp/multiply_figure.sh . 
+   cp /daten/03_Diss_Latex/plots/10_sim_meas_comp/multiply_figure.sh .
    cp /daten/03_Diss_Latex/plots/01_velocity/02_compar_Sim_Meas/multiply_advanced.sh .
 }

@@ -24,12 +24,12 @@ setlocal conceallevel=0
 setlocal completefunc=
 setlocal nocopyindent
 setlocal cryptmethod=
-setlocal nocursorbind
+setlocal cursorbind
 setlocal cursorcolumn
 setlocal nocursorline
 setlocal define=
 setlocal dictionary=
-setlocal nodiff
+setlocal diff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
@@ -37,13 +37,13 @@ if &filetype != ''
 setlocal filetype=
 endif
 setlocal fixendofline
-setlocal foldcolumn=0
+setlocal foldcolumn=2
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
+setlocal foldmethod=diff
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -82,7 +82,7 @@ setlocal noreadonly
 setlocal relativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
-setlocal noscrollbind
+setlocal scrollbind
 setlocal shiftwidth=3
 setlocal noshortname
 setlocal signcolumn=auto
@@ -112,18 +112,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 18) / 37)
+let s:l = 37 - ((36 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-let s:c = 267 - ((77 * winwidth(0) + 79) / 159)
-if s:c > 0
-  exe 'normal! ' . s:c . '|zs' . 267 . '|'
-else
-  normal! 0267|
-endif
+37
+normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

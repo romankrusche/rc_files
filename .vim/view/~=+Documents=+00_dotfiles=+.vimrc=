@@ -36,12 +36,12 @@ setlocal conceallevel=0
 setlocal completefunc=
 setlocal nocopyindent
 setlocal cryptmethod=
-setlocal nocursorbind
+setlocal cursorbind
 setlocal cursorcolumn
 setlocal nocursorline
 setlocal define=
 setlocal dictionary=
-setlocal nodiff
+setlocal diff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
@@ -49,13 +49,13 @@ if &filetype != 'vim'
 setlocal filetype=vim
 endif
 setlocal fixendofline
-setlocal foldcolumn=0
+setlocal foldcolumn=2
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
+setlocal foldmethod=diff
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -94,7 +94,7 @@ setlocal noreadonly
 setlocal relativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
-setlocal noscrollbind
+setlocal scrollbind
 setlocal shiftwidth=3
 setlocal noshortname
 setlocal signcolumn=auto
@@ -124,8 +124,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 14) / 29)
+let s:l = 1 - ((0 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
